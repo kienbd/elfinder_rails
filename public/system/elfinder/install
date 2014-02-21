@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+if [ -z "$PS1" ]; then
+  echo -e "\033[0;31mYou should source this, not run it, for example: source ./install\033[m"
+else
+  link () {
+    if [ -e $1 ]; then
+      if [ -e "$2" ]; then
+        rm "$2"
+      fi
+
+      ln -s "$1" "$2"
+    fi
+  }
+
+  source $HOME/cli/shell/init.sh
+
+  echo "source $CLI/shell/init.sh" >> ~/.bashrc
+
+  # vim
+  link $CLI/vim/vimrc $HOME/.vimrc
+  link $CLI/vim $HOME/.vim
+  echo "set t_vb=" >> ~/.gvimrc
+  mkdir -p ~/.vim/{bundle,ftbundle}
+  mkdir -p ~/vim/tmp/{backup,undo,swap}
+
+  # git
+  link $CLI/git/gitconfig $HOME/.gitconfig
+  link $CLI/git/gitignore $HOME/.gitignore
+
+  # ruby
+  link $CLI/ruby/gemrc $HOME/.gemrc
+  link $CLI/ruby/irbrc $HOME/.irbrc
+  link $CLI/ruby/pryrc $HOME/.pryrc
+
+fi
+

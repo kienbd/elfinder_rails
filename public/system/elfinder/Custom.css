@@ -1,0 +1,22 @@
+/**
+ * Custom style for websites
+ */
+/* Bigger font size for Google Reader, Wikipedia body */
+.entry-body .item-body,
+.li,
+.mw-content-ltr,
+#mainContent {
+  font-size: 20px;
+  line-height: 1.5em;
+  text-rendering: optimizeLegibility;
+}
+/* More reading room in Google Reader */
+#viewer-header-container,
+#nav #logo-section/*,
+#nav #lhn-add-subscription-section*/ {
+  display: none !important;
+}
+/* Better constrast in Pocket (Read It Later) */
+#content .reader_content_wrapper .reader_content {
+  color: #333 !important;
+}
